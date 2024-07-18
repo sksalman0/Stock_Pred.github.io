@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+</head>
+<body>
+    <div class="align-self-center">
+    <h1 name="h" class="text-center">Stock Predictor</h1><br><br>
+    {% if pred %}
+        <p>{{ pred }}</p>
+    {% endif %}
+    <form name="tp" class="form-control-lg" method="post" action="/predict">
+        <h1 class="text-center">Predict Tomorrow's Price</h1>
+        <div class="row-cols-2">
+        <label>Enter Stock Symbol:</label>
+        <input type="text" class="se" name="sn" required="text"><br><br>
+        <button type="submit" class="btn btn-info" value="Predict">Predict</button>
+    </div>
+    
+    </form><br><br><br><br>
+    <h3 class="text-center"><b>{{prediction}}</b></h3>
+    <br><br>
+    
+    <form method="post" class="form-control-lg align-self-center" action="/m_predict">
+        <h1 class="text-center">Manually Enter Data</h1>
+        <div class="row-cols-2"
+        <div class="text-center">
+        <label>Enter Stock Symbol:</label><br>
+        <input type="text" class="se" name="sn1" required="text"><br><br>
+        <label>Enter Open:</label>
+        <input type="text" class="se" name="op" required="text"><br><br>
+        <label>Enter High:</label>
+        <input type="text" class="se" name="hi" required="text"><br><br>
+        <label>Enter Low:</label>
+        <input type="text" class="se" name="lo" required="text"><br><br>
+        <label>Enter Volume:</label>
+        <input type="text" class="se" name="vo" required="text"><br><br>
+        <button type="submit" class="btn btn-info" value="Predict">Predict</button>
+        </div>
+    </div>
+    {{pred}}
+        
+    </form>
+</div>
+{{pred}}
+</body>
+</html>
